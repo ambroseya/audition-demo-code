@@ -138,8 +138,8 @@ function painting_locations() {
 
 }
 
-// Hook into the 'init' action
-add_action( 'init', 'painting_locations', 0 );
+	// Hook into the 'init' action
+	add_action( 'init', 'painting_locations', 0 );
 
 	add_filter( 'cmb_meta_boxes', 'cmb_painting_boxes' );
     
@@ -156,62 +156,61 @@ function cmb_painting_boxes( array $meta_boxes ) {
 		'priority'   => 'high',
 		'show_names' => true, // Show field names on the left
 		'fields'     => array(
-		
-array(
-    'name' => 'Sizes',
-    'desc' => '',
-    'id' => $prefix . 'test_multicheckbox',
-    'type' => 'multicheck',
-    'options' => array(
-        '4x6' => '4x6',
-        '5x8' => '5x8',
-        '8x10' => '8x10',
-        '13x20' => '13x20',
-    )
-),
-array(
-    'name' => 'Type Available',
-    'desc' => '',
-    'id' => $prefix . 'type',
-    'type' => 'multicheck',
-    'options' => array(
-        'original' => 'Original',
-        'print' => 'Print'
-    )
-),
-array(
-    'name' => 'Number of Copies',
-    'desc' => '',
-    'default' => '',
-    'id' => $prefix . 'copies',
-    'type' => 'text_small'
-),
-array(
-    'id'          => $prefix . 'prices',
-    'type'        => 'group',
-    'description' => __( 'Prices for different options', 'cmb2' ),
-    'options'     => array(
-        'group_title'   => __( 'Entry {#}', 'cmb2' ), // since version 1.1.4, {#} gets replaced by row number
-        'add_button'    => __( 'Add Another Entry', 'cmb2' ),
-        'remove_button' => __( 'Remove Entry', 'cmb2' ),
-        'sortable'      => true, // beta
-    ),
-    // Fields array works the same, except id's only need to be unique for this group. Prefix is not needed.
-    'fields'      => array(
-        array(
-            'name' => 'Price',
-            'id'   => 'price',
-            'type' => 'text',
-            // 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
-        ),
-        array(
-            'name' => 'Description',
-            'description' => 'Write a short description for this price point',
-            'id'   => 'description',
-            'type' => 'textarea_small',
-        ),
-       
-	),),
+			array(
+			    'name' => 'Sizes',
+			    'desc' => '',
+			    'id' => $prefix . 'test_multicheckbox',
+			    'type' => 'multicheck',
+			    'options' => array(
+			        '4x6' => '4x6',
+			        '5x8' => '5x8',
+			        '8x10' => '8x10',
+			        '13x20' => '13x20',
+				    )
+			),
+			array(
+			    'name' => 'Type Available',
+			    'desc' => '',
+			    'id' => $prefix . 'type',
+			    'type' => 'multicheck',
+			    'options' => array(
+			        'original' => 'Original',
+			        'print' => 'Print'
+			    )
+			),
+			array(
+			    'name' => 'Number of Copies',
+			    'desc' => '',
+			    'default' => '',
+			    'id' => $prefix . 'copies',
+			    'type' => 'text_small'
+			),
+			array(
+			    'id'          => $prefix . 'prices',
+			    'type'        => 'group',
+			    'description' => __( 'Prices for different options', 'cmb2' ),
+			    'options'     => array(
+			        'group_title'   => __( 'Entry {#}', 'cmb2' ), // since version 1.1.4, {#} gets replaced by row number
+			        'add_button'    => __( 'Add Another Entry', 'cmb2' ),
+			        'remove_button' => __( 'Remove Entry', 'cmb2' ),
+			        'sortable'      => true, // beta
+			    ),
+				    // Fields array works the same, except id's only need to be unique for this group. Prefix is not needed.
+			    'fields'      => array(
+			        array(
+			            'name' => 'Price',
+			            'id'   => 'price',
+			            'type' => 'text',
+			            // 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
+			        ),
+			        array(
+			            'name' => 'Description',
+			            'description' => 'Write a short description for this price point',
+			            'id'   => 'description',
+			            'type' => 'textarea_small',
+			        ),       
+				),
+			),
 	)
 		);
 			return $meta_boxes;
@@ -223,9 +222,7 @@ add_action( 'init', 'cmb_initialize_cmb_meta_boxes', 9999 );
 //download CMB from here: https://github.com/WebDevStudios/Custom-Metaboxes-and-Fields-for-WordPress and make sure the following function has the correct path.
  
 function cmb_initialize_cmb_meta_boxes() {
-
 	if ( ! class_exists( 'cmb_Meta_Box' ) )
 		require_once 'cmb/init.php';
-
 }
 ?>
